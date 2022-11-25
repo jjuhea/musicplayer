@@ -1,28 +1,33 @@
-var song;
-var button;
-
-function setup(){
-    createCanvas(200,200);
-    song=loadSound("YOUNHA.MP3",loaded);
-    button=createButton('play');
+let musicFile;
+let button;
+function setup()
+{
+    createCanvas(640,480);
+    soundFormats('mp3','ogg');
+    musicFile=loadSound('YOUNHA',loadMusic);
+    button=createButton("play");
     button.mousePressed(togglePlaying);
-    background(51);
 
 }
 
+
 function togglePlaying(){
-    if(!song.isPlaying()){
-        song.play();
-        song.setVolume(0,3);
+    if(!musicFile.isPlaying()){
+        musicFile.play();
         button.html('pause');
         }
 
     else{
-        song.stop();
+        musicFile.stop();
         button.html('play');
     }
 }
 
-function loaded(){
-    console.log('loaded');
+function loadMusic(){
+    console.log("Its working");
+}
+
+function draw(){
+    
+    ellipse(50,50,100,100);
 }
